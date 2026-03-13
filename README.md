@@ -115,7 +115,125 @@ Length guideline:
 **~1 page**
 
 You may write in **Markdown (.md)**.
+1. Problem Statement
 
+Traditional classroom attendance systems are often inefficient and unreliable. Instructors need a simple way to confirm that students are physically present and participating in class activities.
+
+This application provides a digital solution that combines GPS verification, QR code scanning, and student reflection to improve class participation tracking.
+
+2. Target Users
+
+Primary users include:
+
+University students attending classes
+
+Instructors who want to confirm student attendance and participation
+
+3. Feature List
+
+Main features of the system include:
+
+Student Check-in
+
+Record GPS location
+
+Record timestamp
+
+Scan classroom QR code
+
+Learning Reflection
+
+Input previous class topic
+
+Input expected topic for the current class
+
+Select mood before class
+
+Finish Class Reflection
+
+Scan QR code again
+
+Record GPS location
+
+Input learning summary
+
+Provide feedback
+
+Local Data Storage
+
+Save check-in and check-out data using SQLite
+
+4. User Flow
+
+User flow of the application:
+
+Open the mobile application
+
+Navigate to Home Screen
+
+Press Check-in
+
+Scan QR Code
+
+Fill in reflection form
+
+Save check-in data
+
+Attend class
+
+Press Finish Class
+
+Scan QR Code again
+
+Fill reflection and feedback
+
+Save data
+
+5. Data Fields
+
+Check-in data includes:
+
+timestamp
+
+latitude
+
+longitude
+
+previousClassTopic
+
+expectedTopic
+
+moodScore
+
+Finish class data includes:
+
+timestamp
+
+latitude
+
+longitude
+
+learnedToday
+
+feedback
+
+6. Tech Stack
+
+Frontend:
+
+Flutter
+
+Libraries:
+
+geolocator (GPS location)
+
+mobile_scanner (QR code scanning)
+
+sqflite (local database)
+
+Backend / Deployment:
+
+Firebase Hosting
 ---
 
 # Part 2 — Mobile Application (Flutter)
@@ -134,14 +252,78 @@ Minimum functionality:
 - **Scan QR Code or others**
 - **Form input**
 - Save data
+1. Home Screen
 
+Main navigation screen containing:
+
+Check-in button
+
+Finish Class button
+
+View Records button
+
+2. Check-in Screen
+
+Functions implemented:
+
+Retrieve GPS location using Geolocator
+
+Scan QR code using mobile_scanner
+
+Input reflection form
+
+Save data to SQLite database
+
+Form inputs include:
+
+Previous class topic
+
+Expected topic today
+
+Mood selection (1–5 scale)
+
+3. Finish Class Screen
+
+Functions implemented:
+
+Scan QR code again
+
+Retrieve GPS location
+
+Input learning reflection
+
+Save feedback
+
+Form inputs include:
+
+What did you learn today
+
+Feedback about the class
 ---
 
 # Part 3 — Data Storage
 
 The system must be able to **store check-in and check-out data**.
 - Use localStorage or SQLite for MVP version
+Fields:
 
+id
+
+timestamp
+
+latitude
+
+longitude
+
+previousTopic
+
+expectedTopic
+
+mood
+
+learnedToday
+
+feedback
 ---
 
 # Part 4 — Deployment
@@ -155,7 +337,12 @@ Examples:
 - Landing page for your app
 
 The deployed URL must be accessible.
+Deployment example:
 
+Flutter Web demo page
+
+Landing page of the application
+Example deployment URL:https://smart-class-checkin.web.app
 ---
 
 # Deliverables
@@ -174,7 +361,7 @@ Format:
 Upload to:
 
 **GitHub Repository**
-
+https://github.com/username/smart-class-app
 ---
 
 ### 3. Firebase Deployment
@@ -182,7 +369,7 @@ Upload to:
 Submit:
 
 - Firebase URL
-
+https://smart-class-checkin.web.app
 ---
 
 ### 4. README
@@ -208,6 +395,35 @@ Example:
 AI was used to generate Flutter UI scaffolding and QR scanner integration.
 I modified the form validation and Firebase data structure manually.
 
+AI tools used in this project:
+
+ChatGPT
+
+AI assisted with:
+
+Generating Flutter project structure
+
+QR code scanning integration
+
+GPS location implementation
+
+SQLite database setup
+
+UI scaffolding
+
+Manual implementation by the student:
+
+Requirement analysis
+
+UI adjustments
+
+Form validation
+
+Feature integration
+
+Debugging and testing
+
+AI was used as a development assistant while the final system integration and testing were completed manually.
 ---
 
 # Suggested Time Allocation
